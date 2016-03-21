@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estructuras;
-
+package tests;
+import lineales.estaticas.ColaInt;
 /**
  *
  * @author ricardo
  */
-public class Estructuras {
-
-    /**
-     * @param args the command line arguments
-     */
+public class TestCola {
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        ColaInt p = new ColaInt();
+        p.poner(2);
+        p.poner(352532);
+        p.sacar();
+        System.out.println(p.toString());
+        
     }
-
+   
 }
