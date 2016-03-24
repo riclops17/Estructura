@@ -13,11 +13,10 @@ import lineales.estaticas.PilaInt;
 public class TestPilaEstatica {
     public static void main(String[] args) {
         PilaInt p = new PilaInt();
-        p.apilar(2);
-        p.apilar(1423);
+        
         PilaInt n = new PilaInt();
          
-         p.desapilar();
+         
          n  = p.clonar();
          
          

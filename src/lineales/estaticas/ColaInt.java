@@ -69,17 +69,11 @@ public class ColaInt {
         return s;
         }
     public ColaInt clonar(){
-        ColaInt copia = new ColaInt();
-        if(this.esVacia()){
-            copia.cola = this.cola.clone();
-           
-        }else{
-            for (int i = this.frente; i < this.fin; i++) {
-                int j = cola[i];
-                
-            }
-        }
-        
+         ColaInt copia = new ColaInt();
+        copia.frente= this.frente;
+        copia.fin = this.fin;
+        copia.cola = this.cola.clone();
+        return copia;
     }
     }
 

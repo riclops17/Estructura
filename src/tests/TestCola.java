@@ -13,10 +13,10 @@ public class TestCola {
     
     public static void main(String[] args) {
         ColaInt p = new ColaInt();
-        p.poner(2);
-        p.poner(352532);
-        p.sacar();
-        System.out.println(p.toString());
+       
+        ColaInt n = new ColaInt();
+        n = p.clonar();
+        System.out.println(n.toString());
         
     }
    
