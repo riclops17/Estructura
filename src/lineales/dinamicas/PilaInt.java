@@ -54,13 +54,22 @@ public class PilaInt {
         return elemn;
     }
     public PilaInt clonar(){
-        PilaInt copia = null;
-        NodoInt aux = tope;
-        while(aux != null){
-            copia.apilar(aux.getElem());
-            aux.getEnlace();
+        PilaInt copia = new PilaInt();
+        if(this.tope != null){
+            copia.tope = new NodoInt( this.tope.getElem(),unir(this.tope.getEnlace()));
         }
         return copia;
+        
+    }
+    private NodoInt unir(NodoInt aux){
+        NodoInt res;
+        if(aux== null){
+            res= null;
+        }else{
+            NodoInt x = new NodoInt((aux.getElem()),unir(aux.getEnlace()));
+            res= x;
+        }
+        return res;
     }
     
 }
