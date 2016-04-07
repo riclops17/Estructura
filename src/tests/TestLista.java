@@ -12,14 +12,32 @@ import lineales.dinamicas.ListaInt;
 public class TestLista {
     public static void main(String[] args) {
             ListaInt p = new ListaInt();
-        
+        ListaInt r = new ListaInt();
         ListaInt d = new ListaInt();
-        p.insertar(2, 1);
-        p.insertar(3, 2);
-        p.insertar(4, 3);
-       
-      
-        System.out.println(p.localizar(3));
+        p.insertar(1, 1);
+        p.insertar(2, 2);
+        p.insertar(3, 3);
+        d.insertar(4, 1);
+        d.insertar(5, 2);
         
+        r =  concatenar(p,d);
+        System.out.println(r.toString());
+        
+    }
+    public static ListaInt concatenar(ListaInt l1 , ListaInt l2){
+        ListaInt nuevo = new ListaInt();
+        nuevo = l1.clonar();
+        int longitudN;
+        int i = 1;
+        longitudN = l1.longitud() + l2.longitud();
+        while( nuevo.longitud() < longitudN){
+            nuevo.insertar(l2.recuperar(i), l1.longitud()+ i );
+            
+          i++;
+       }
+       
+        
+   
+      return nuevo; 
     }
 }
