@@ -94,7 +94,7 @@ public class ListaInt {
         }
         return s;
     }
-    public ListaInt clonar(){
+    public ListaInt clonar2(){
        
          ListaInt copia = new ListaInt();
          NodoInt aux = this.cabecera;
@@ -134,7 +134,38 @@ public class ListaInt {
 
 }
     public int localizar(int elem){
+        int pos = -1;
+        int i=1;
+        boolean exito = false;
+        NodoInt aux = this.cabecera;
+        while(i <= this.longitud && !exito ){
+            if(elem == aux.getElem()){
+                pos = i;
+                exito = true;
+            }
+            aux = aux.getEnlace();
+            i++;
+        }
+        return pos;
         
+    }
+    public ListaInt clonar(){
+        ListaInt copia = new ListaInt();
+        if(this.cabecera != null){
+            copia.cabecera = new NodoInt( this.cabecera.getElem(),unir(this.cabecera.getEnlace()));
+            copia.longitud =longitud;
+        }
+        return copia;
+    }
+    private NodoInt unir(NodoInt aux){
+        NodoInt res;
+        if(aux== null){
+            res= null;
+        }else{
+            NodoInt x = new NodoInt((aux.getElem()),unir(aux.getEnlace()));
+            res= x;
+        }
+        return res;
     }
 }
 

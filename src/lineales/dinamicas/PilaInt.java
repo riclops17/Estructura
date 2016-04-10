@@ -11,7 +11,7 @@ package lineales.dinamicas;
  */
 public class PilaInt {
     private NodoInt tope;
-    
+   
     public PilaInt(){
         this.tope = null;
     }

@@ -5,6 +5,7 @@
  */
 package tests;
 import lineales.dinamicas.ListaInt;
+import lineales.dinamicas.PilaInt;
 /**
  *
  * @author ricardo
@@ -12,14 +13,13 @@ import lineales.dinamicas.ListaInt;
 public class TestLista {
     public static void main(String[] args) {
             ListaInt p = new ListaInt();
-        ListaInt r = new ListaInt();
+        ListaInt r = null;
         ListaInt d = new ListaInt();
         p.insertar(1, 1);
         p.insertar(2, 2);
         p.insertar(3, 3);
         d.insertar(4, 1);
         d.insertar(5, 2);
-        
         r =  concatenar(p,d);
         System.out.println(r.toString());
         
@@ -39,5 +39,18 @@ public class TestLista {
         
    
       return nuevo; 
+    }
+    public static ListaInt invertir (ListaInt l1){
+        ListaInt nuevo = new ListaInt() ;
+        PilaInt pilaAux = new PilaInt();
+        for(int i = 1 ; i<= l1.longitud() ; i++){
+            pilaAux.apilar(l1.recuperar(i));
+        }
+        
+        for ( int i= 1; i<= l1.longitud(); i++){
+            nuevo.insertar(pilaAux.obtenerTope(), i);
+            pilaAux.desapilar();
+        }
+        return nuevo;
     }
 }

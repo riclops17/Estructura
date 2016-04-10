@@ -56,17 +56,18 @@ public class ColaInt {
         return this.cola[frente];
     }
     public String toString(){
-        String s;
+        String s ,c;
         s = "";
-        if(this.esVacia()){
-            s = "la cola esta vacia";
-        }else{
-            for ( int i = this.frente; i <this.fin; i++) {
-                s += this.cola[i] + " ";
-                
-            }
-            }
-        return s;
+        c = "";
+        int i = this.frente;
+        if(i!= this.fin){
+            i = i % cola.length;
+            s = Integer.toString(this.cola[i]);
+            c = c +""+ s;
+            
+        }
+        return c;
+        
         }
     public ColaInt clonar(){
          ColaInt copia = new ColaInt();
