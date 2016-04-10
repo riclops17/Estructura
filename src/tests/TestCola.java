@@ -6,7 +6,7 @@
 package tests;
 //import lineales.estaticas.ColaInt;
  //import lineales.dinamicas.ColaInt;
-import lineales.dinamicas.ListaInt;
+import lineales.dinamicas.ColaInt;
 /**
  *
  * @author ricardo
@@ -14,16 +14,12 @@ import lineales.dinamicas.ListaInt;
 public class TestCola {
     
     public static void main(String[] args) {
-        //ListaInt p = new ListaInt();
-        
-        //ListaInt d = new ListaInt();
-     // p.insertar(2, 1);
-     // p.insertar(3, 2);
-     // p.insertar(4, 3);
-     //p.eliminar(3);
-      
-       
-        //System.out.println(p.toString());
+       ColaInt cola = new ColaInt();
+       cola.poner(1);
+       cola.poner(2);
+       cola.poner(3);
+       cola.sacar();
+        System.out.println(cola.toString());
         
     }
    

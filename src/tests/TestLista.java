@@ -6,6 +6,7 @@
 package tests;
 import lineales.dinamicas.ListaInt;
 import lineales.dinamicas.PilaInt;
+import lineales.dinamicas.ColaInt;
 /**
  *
  * @author ricardo
@@ -53,4 +54,24 @@ public class TestLista {
         }
         return nuevo;
     }
+    public static boolean comprobar(ListaInt l1){
+        ColaInt colaAux = new ColaInt();
+        PilaInt pilaAux = new PilaInt();
+        int i = 1;
+        boolean res = true;
+        if(l1.esVacia()){
+            res = false;
+        }else{
+            while(l1.recuperar(i)!= 0){
+                pilaAux.apilar(l1.recuperar(i));
+                colaAux.poner(l1.recuperar(i));
+                i++;
+            }
+            while(l1.recuperar(i)!= 0 && res ){
+                if(l1.recuperar(i)== colaAux.obtenerFrente()){
+                   colaAux.sacar();
+                }
+                    
+                }
+            }
 }
