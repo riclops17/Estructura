@@ -7,22 +7,25 @@ package tests;
 import lineales.dinamicas.ListaInt;
 import lineales.dinamicas.PilaInt;
 import lineales.dinamicas.ColaInt;
+import utiles.TecladoIn;
 /**
  *
  * @author ricardo
  */
 public class TestLista {
     public static void main(String[] args) {
-            ListaInt p = new ListaInt();
+        int lon = 0;
+        ListaInt p = new ListaInt();
         ListaInt r = null;
         ListaInt d = new ListaInt();
-        p.insertar(1, 1);
-        p.insertar(2, 2);
-        p.insertar(3, 3);
-        d.insertar(4, 1);
-        d.insertar(5, 2);
-        r =  concatenar(p,d);
-        System.out.println(r.toString());
+        System.out.println("escriba la longitud de su lista");
+        lon = p.longitud();
+        lon = TecladoIn.readLineInt();
+       for(int j = 1 ; j<= lon;j++){
+           System.out.println("ingrese el elemento");
+           p.insertar(TecladoIn.readLineInt(), j);
+       }
+        System.out.println(comprobar(p));
         
     }
     public static ListaInt concatenar(ListaInt l1 , ListaInt l2){
@@ -57,21 +60,45 @@ public class TestLista {
     public static boolean comprobar(ListaInt l1){
         ColaInt colaAux = new ColaInt();
         PilaInt pilaAux = new PilaInt();
+        int val = 1;
         int i = 1;
+        val = l1.recuperar(i);
+        int lon = l1.longitud();
         boolean res = true;
         if(l1.esVacia()){
             res = false;
         }else{
-            while(l1.recuperar(i)!= 0){
-                pilaAux.apilar(l1.recuperar(i));
-                colaAux.poner(l1.recuperar(i));
+            while(val != 0 && i <= lon){
+                pilaAux.apilar(val);
+                colaAux.poner(val);
+                i++; 
+                val = l1.recuperar(i);
+            }
+            i++;
+            val = l1.recuperar(i);
+            while(val != 0  && i <= lon && res){
+                if(val == colaAux.obtenerFrente()){
+                   colaAux.sacar();
+                }else{
+                    res = false;
+                }
+                
+                  i++;   
+                  val =l1.recuperar(i);
+                }
+             i++;
+            while(i <= lon && res){
+                
+                if(l1.recuperar(i) == pilaAux.obtenerTope()){
+                    pilaAux.desapilar();
+                }else{
+                    res = false;
+                }
                 i++;
             }
-            while(l1.recuperar(i)!= 0 && res ){
-                if(l1.recuperar(i)== colaAux.obtenerFrente()){
-                   colaAux.sacar();
-                }
-                    
-                }
-            }
+        }
+           return res; 
+        }
+        
 }
+
