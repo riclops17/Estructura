@@ -87,6 +87,10 @@ public class TestLista {
                   val =l1.recuperar(i);
                 }
              i++;
+             
+             if(!pilaAux.esVacia()&& i > lon){
+                 res = false;
+             }
             while(i <= lon && res){
                 
                 if(l1.recuperar(i) == pilaAux.obtenerTope()){
