@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package jerarquicas;
-
+import lineales.dinamicas.ListaInt;
+import lineales.dinamicas.ColaNodo;
 /**
  *
  * @author ricardo
@@ -62,6 +63,7 @@ public class ArbolBinInt {
       return exito;   
     }
     public void preorden(){
+       
         preordenAux(this.raiz);
     }
     private void preordenAux(NodoArbol nodo){
@@ -73,6 +75,107 @@ public class ArbolBinInt {
             preordenAux(nodo.getDer());
         }
     }
+    public boolean esVacio(){
+        return this.raiz == null;
+    }
+    public void vaciar(){
+        raiz = null;
+    }
+    public void inorden(){
+        inordenAux(this.raiz);
+    }
+    private void inordenAux(NodoArbol nodo){
+        if(nodo!= null){
+            preordenAux(nodo.getIzq());
+            System.out.println(nodo.getElem());
+            preordenAux(nodo.getDer());
+        }
+    }
+    private void posordenAux(NodoArbol nodo){
+        if(nodo != null){
+            posordenAux(nodo.getIzq());
+            posordenAux(nodo.getDer());
+            System.out.println(nodo.getElem());
+        }
+    }
+    public void posorden(){
+        posordenAux(this.raiz);
+    }
+    public void porNiveles(){
+        ColaNodo colaAux = new ColaNodo();
+        colaAux.poner(this.raiz);
+        while(!colaAux.esVacia()){
+            NodoArbol nodo = colaAux.obtenerFrente();
+            colaAux.sacar();
+            System.out.println(nodo.getElem());
+            if(nodo.getIzq()!= null){
+                colaAux.poner(nodo.getIzq());
+            }
+            if(nodo.getDer()!= null){
+                colaAux.poner(nodo.getDer());
+            }
+            
+        }
+    }
+    public int padre(int elem){
+        int padreElem = 0;
+        if(this.raiz == null){
+            padreElem = -1;
+        }else{
+             padreElem = padreAux(this.raiz, elem);
+           
+        }
+        return padreElem;
+    }
+    private int padreAux(NodoArbol n,int elem){
+        int res = -1;
+        if(n!= null){
+            if(n.getIzq().getElem() == elem || n.getDer().getElem() == elem){
+                res= n.getElem();
+            }else{
+                res = padreAux(n.getIzq(),elem);
+                if(res == -1){
+                    res= padreAux(n.getDer(),elem);
+                }
+            }
+        }
+        return res;
+        
+    }
+    public String toString(){
+     String s = "";
+    if(this.raiz != null){
+        s  = stringAux(this.raiz);
+    }else{
+        s = "arbol vacio";
+    }
+    return s;
+         
+    }
+    private String stringAux(NodoArbol n){
+        String s= ""+n.getElem();
+        if(n.getIzq()!= null){
+            s= s +"HI:"+ n.getIzq().getElem(); 
+            
+        }else{
+            s = s +"HI:#";
+        }
+        if(n.getDer()!= null){
+            s= s +"HD:"+ n.getDer().getElem()+"\n"; 
+            
+        }else{
+            s = s +"HD:#"+"\n";
+        }
+        
+        if(n.getIzq() != null){
+         s += stringAux(n.getIzq());
+        }
+        if(n.getDer() != null){
+        s += stringAux(n.getDer());
+        
+    }
+        return s;
+}
 }
     
     

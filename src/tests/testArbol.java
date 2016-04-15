@@ -12,9 +12,17 @@ import jerarquicas.ArbolBinInt;
 public class testArbol {
     public static void main(String[] args) {
        ArbolBinInt a = new ArbolBinInt();
-       a.insertar(2, 1, 'I');
-       a.insertar(3, 0, 'D');
-       a.preorden();
+       a.insertar(1, 1, 'I');
+       a.insertar(4, 1, 'I');
+       a.insertar(5, 1,'D');
+       a.insertar(6, 4, 'I');
+       a.insertar(7, 4, 'D');
+       a.insertar(3, 6, 'I');
+       a.insertar(9, 6 , 'D');
+       a.insertar(2, 5, 'I');
+       a.insertar(8, 5, 'D');
+       
+       System.out.println(a.toString());
     
     }
     
