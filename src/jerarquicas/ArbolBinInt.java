@@ -62,17 +62,18 @@ public class ArbolBinInt {
        }
       return exito;   
     }
-    public void preorden(){
-       
-        preordenAux(this.raiz);
+    public ListaInt listarPreorden(){
+        ListaInt lis = new ListaInt();
+        preordenAux(this.raiz,lis);
+        return lis;
     }
-    private void preordenAux(NodoArbol nodo){
+    private void preordenAux(NodoArbol nodo,ListaInt l1){
         if( nodo != null){
             //visita el elemento en el nodo
-            System.out.println(nodo.getElem());
+            l1.insertar(nodo.getElem(), l1.longitud()+1);
             // recorre a sus hijos en preorden 
-            preordenAux(nodo.getIzq());
-            preordenAux(nodo.getDer());
+            preordenAux(nodo.getIzq(),l1);
+            preordenAux(nodo.getDer(),l1);
         }
     }
     public boolean esVacio(){
@@ -86,9 +87,9 @@ public class ArbolBinInt {
     }
     private void inordenAux(NodoArbol nodo){
         if(nodo!= null){
-            preordenAux(nodo.getIzq());
+            inordenAux(nodo.getIzq());
             System.out.println(nodo.getElem());
-            preordenAux(nodo.getDer());
+            inordenAux(nodo.getDer());
         }
     }
     private void posordenAux(NodoArbol nodo){
@@ -176,6 +177,33 @@ public class ArbolBinInt {
     }
         return s;
 }
+    public int altura(){
+        int res;
+        if(this.raiz == null){
+            res = -1;
+        }else{
+            res= alturaAux(this.raiz);
+        }
+        return res;
+    }
+    private int alturaAux(NodoArbol nodo){
+        int alt1 , alt2 ,res;
+        if(nodo.getIzq()!= null){
+            alt1 = alturaAux(nodo.getIzq())+1;
+        }else
+            alt1 = 0;
+        if(nodo.getDer() != null){
+            alt2 = alturaAux(nodo.getDer())+1;
+        }else{
+            alt2 = 0;
+        }
+        if(alt1> alt2){
+            res = alt1;
+        }else{
+            res = alt1;
+        }
+        return res;
+    }
 }
     
     

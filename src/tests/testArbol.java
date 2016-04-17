@@ -12,6 +12,7 @@ import jerarquicas.ArbolBinInt;
 public class testArbol {
     public static void main(String[] args) {
        ArbolBinInt a = new ArbolBinInt();
+       ArbolBinInt b = new ArbolBinInt();
        a.insertar(1, 1, 'I');
        a.insertar(4, 1, 'I');
        a.insertar(5, 1,'D');
@@ -22,7 +23,7 @@ public class testArbol {
        a.insertar(2, 5, 'I');
        a.insertar(8, 5, 'D');
        
-       System.out.println(a.toString());
+       System.out.println(b.altura());
     
     }
     

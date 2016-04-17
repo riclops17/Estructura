@@ -25,7 +25,7 @@ public class TestLista {
            System.out.println("ingrese el elemento");
            p.insertar(TecladoIn.readLineInt(), j);
        }
-        System.out.println(comprobar(p));
+        System.out.println(contar(p,1));
         
     }
     public static ListaInt concatenar(ListaInt l1 , ListaInt l2){
@@ -44,6 +44,22 @@ public class TestLista {
    
       return nuevo; 
     }
+   public static int contar(ListaInt l1,int elem){
+       int cant = 0;
+       int i = 1;
+       while( i < l1.longitud()){
+           if(elem == l1.recuperar(i)){
+               cant++;
+           }
+           i++;
+       }
+       return cant;
+       
+   }
+   public static int contarR(ListaInt l1 , int elem){
+       int cant = 0;
+       return cant;
+   }
     public static ListaInt invertir (ListaInt l1){
         ListaInt nuevo = new ListaInt() ;
         PilaInt pilaAux = new PilaInt();
