@@ -23,8 +23,8 @@ public class testArbol {
        a.insertar(9, 6 , 'D');
        a.insertar(2, 5, 'I');
        a.insertar(8, 5, 'D');
-       b = a.clonar();
-       System.out.println(a.toString());
+       b = a.clonarInvertido();
+       System.out.println(b.toString());
     
     }
     

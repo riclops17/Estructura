@@ -245,6 +245,32 @@ public class ArbolBinInt {
         clon.raiz = x;
         return clon;
     }
+    private ArbolBinInt clonarInvertidoAux(NodoArbol nodo){
+        NodoArbol x ;
+        ArbolBinInt izqC ,derC; 
+        
+        if(nodo == null){
+            x = null;
+        }else{
+            izqC = clonarAux(nodo.getDer());
+            derC = clonarAux(nodo.getIzq());
+            x = new NodoArbol(nodo.getElem());
+            x.setIzq(izqC.raiz);
+            x.setDer(derC.raiz);
+        }
+        ArbolBinInt clon = new ArbolBinInt();
+        clon.raiz = x;
+        return clon;
+    }
+    public ArbolBinInt clonarInvertido(){
+        ArbolBinInt clon = new ArbolBinInt();
+        if(this.raiz== null){
+            System.out.println("es vacio");
+        }else{
+            clon= clonarInvertidoAux(this.raiz);
+        }
+        return clon;
+    }
 }
     
     
