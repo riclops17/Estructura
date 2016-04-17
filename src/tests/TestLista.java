@@ -25,7 +25,8 @@ public class TestLista {
            System.out.println("ingrese el elemento");
            p.insertar(TecladoIn.readLineInt(), j);
        }
-        System.out.println(contar(p,1));
+        p.eliminarApariciones(1);
+        System.out.println(p.toString());
         
     }
     public static ListaInt concatenar(ListaInt l1 , ListaInt l2){

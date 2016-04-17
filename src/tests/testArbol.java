@@ -5,6 +5,7 @@
  */
 package tests;
 import jerarquicas.ArbolBinInt;
+import lineales.dinamicas.ListaInt;
 /**
  *
  * @author ricardo
@@ -22,8 +23,8 @@ public class testArbol {
        a.insertar(9, 6 , 'D');
        a.insertar(2, 5, 'I');
        a.insertar(8, 5, 'D');
-       
-       System.out.println(b.altura());
+       b = a.clonar();
+       System.out.println(a.toString());
     
     }
     

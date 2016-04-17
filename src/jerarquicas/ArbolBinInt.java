@@ -76,6 +76,21 @@ public class ArbolBinInt {
             preordenAux(nodo.getDer(),l1);
         }
     }
+    public ListaInt frontera(){
+        ListaInt l1 = new ListaInt();
+        fronteraAux(this.raiz,l1);
+        return l1;
+    }
+    private void fronteraAux(NodoArbol nodo , ListaInt l1){
+       if(nodo != null){
+           if(nodo.getIzq() == null &&  nodo.getDer() == null){
+               l1.insertar(nodo.getElem(), l1.longitud()+1);
+           }
+           fronteraAux(nodo.getIzq(),l1);
+           fronteraAux(nodo.getDer(),l1);
+       }
+        
+    }
     public boolean esVacio(){
         return this.raiz == null;
     }
@@ -203,6 +218,32 @@ public class ArbolBinInt {
             res = alt1;
         }
         return res;
+    }
+    public ArbolBinInt clonar(){
+        ArbolBinInt clon = new ArbolBinInt();
+        if(this.raiz== null){
+            System.out.println("es vacio");
+        }else{
+            clon= clonarAux(this.raiz);
+        }
+        return clon;
+    }
+    private ArbolBinInt clonarAux(NodoArbol nodo){
+        NodoArbol x ;
+        ArbolBinInt izqC ,derC; 
+        
+        if(nodo == null){
+            x = null;
+        }else{
+            izqC = clonarAux(nodo.getIzq());
+            derC = clonarAux(nodo.getDer());
+            x = new NodoArbol(nodo.getElem());
+            x.setIzq(izqC.raiz);
+            x.setDer(derC.raiz);
+        }
+        ArbolBinInt clon = new ArbolBinInt();
+        clon.raiz = x;
+        return clon;
     }
 }
     

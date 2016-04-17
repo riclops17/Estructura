@@ -167,5 +167,28 @@ public class ListaInt {
         }
         return res;
     }
+    public void insertarPromedio(){
+        NodoInt aux = this.cabecera;
+        int res = 0;
+        int promedio;
+        for(int i = 1; i<= longitud; i++){
+            res = res +aux.getElem();
+            aux = aux.getEnlace();
+        }
+        promedio = res/longitud;
+        
+    }
+    public void eliminarApariciones(int x){
+        NodoInt aux = this.cabecera;
+        int i = 1;
+        while(i< longitud){
+            if(x == aux.getElem()){
+                aux.setEnlace(null);
+            }
+            aux = aux.getEnlace();
+            i++;
+        }
+        
+    }
 }
 
