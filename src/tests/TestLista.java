@@ -17,11 +17,13 @@ public class TestLista {
         int lon = 0;
         ListaInt p = new ListaInt();
        p.insertar(1, 1);
-       p.insertar(1, 2);
+       p.insertar(2, 2);
        p.insertar(3, 3);
-       p.insertar(4, 4);
-       p.eliminarApariciones(1);
-        System.out.println(p.toString());
+       p.insertar(2, 4);
+       p.insertar(1, 5);
+       
+       
+        System.out.println(esCapicua(p));
         
     }
     public static ListaInt concatenar(ListaInt l1 , ListaInt l2){
@@ -115,6 +117,24 @@ public class TestLista {
         }
            return res; 
         }
+    public static boolean esCapicua(ListaInt l1){
+        boolean res = true;
+        PilaInt pilaAux = new PilaInt();
+        int j= 1;
+        for(int i = 1 ; i<= l1.longitud();i++){
+            pilaAux.apilar(l1.recuperar(i));
+        }
+        while(j<= l1.longitud()&& res){
+            if(l1.recuperar(j)== pilaAux.obtenerTope()){
+                res = true;
+            }else{
+                res = false;
+            }
+            j++;
+            pilaAux.desapilar();
+        }
+        return res;
+    }
         
 }
 
