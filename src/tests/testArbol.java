@@ -14,6 +14,7 @@ public class testArbol {
     public static void main(String[] args) {
        ArbolBinInt a = new ArbolBinInt();
        ArbolBinInt b = new ArbolBinInt();
+       ListaInt l1 = new ListaInt();
        a.insertar(1, 1, 'I');
        a.insertar(4, 1, 'I');
        a.insertar(5, 1,'D');
@@ -23,8 +24,12 @@ public class testArbol {
        a.insertar(9, 6 , 'D');
        a.insertar(2, 5, 'I');
        a.insertar(8, 5, 'D');
-       b = a.clonarInvertido();
-       System.out.println(b.toString());
+       l1.insertar(1, 1);
+       l1.insertar(5, 2);
+       l1.insertar(3, 3);
+       
+       
+       System.out.println(a.verificarPatrones(l1));
     
     }
     

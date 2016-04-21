@@ -16,16 +16,11 @@ public class TestLista {
     public static void main(String[] args) {
         int lon = 0;
         ListaInt p = new ListaInt();
-        ListaInt r = null;
-        ListaInt d = new ListaInt();
-        System.out.println("escriba la longitud de su lista");
-        lon = p.longitud();
-        lon = TecladoIn.readLineInt();
-       for(int j = 1 ; j<= lon;j++){
-           System.out.println("ingrese el elemento");
-           p.insertar(TecladoIn.readLineInt(), j);
-       }
-        p.eliminarApariciones(1);
+       p.insertar(1, 1);
+       p.insertar(1, 2);
+       p.insertar(3, 3);
+       p.insertar(4, 4);
+       p.eliminarApariciones(1);
         System.out.println(p.toString());
         
     }
