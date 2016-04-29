@@ -17,13 +17,13 @@ public class TestLista {
         int lon = 0;
         ListaInt p = new ListaInt();
        p.insertar(1, 1);
-       p.insertar(2, 2);
-       p.insertar(3, 3);
+       p.insertar(1, 2);
+       p.insertar(1, 3);
        p.insertar(2, 4);
-       p.insertar(1, 5);
        
        
-        System.out.println(esCapicua(p));
+      p.eliminarApariciones(1);
+        System.out.println(p.toString());
         
     }
     public static ListaInt concatenar(ListaInt l1 , ListaInt l2){

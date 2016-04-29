@@ -15,7 +15,7 @@ public class testArbol {
        ArbolBinInt a = new ArbolBinInt();
        ArbolBinInt b = new ArbolBinInt();
        ListaInt l1 = new ListaInt();
-       a.insertar(1, 1, 'I');
+       a.insertar(6, 1, 'I');
        a.insertar(4, 1, 'I');
        a.insertar(5, 1,'D');
        a.insertar(6, 4, 'I');
@@ -28,8 +28,8 @@ public class testArbol {
        l1.insertar(5, 2);
        l1.insertar(3, 3);
        
-       
-       System.out.println(a.verificarPatrones(l1));
+       b= a.clon();
+       System.out.println(b);
     
     }
     

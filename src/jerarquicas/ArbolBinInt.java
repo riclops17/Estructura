@@ -59,7 +59,8 @@ public class ArbolBinInt {
                     exito = false;
                 }
 
-            } else {
+            } 
+            else {
                 exito = false;
             }
         }
@@ -89,6 +90,26 @@ public class ArbolBinInt {
            }
        }
         return res;
+    }
+    public int Nivel(int elem){
+        int res;
+        res = nivelAux(this.raiz,elem);
+       return res;
+    }
+    private int nivelAux(NodoArbol nodo,int elem){
+        int nivel = 0;
+        if(nodo != null){
+            if(nodo.getElem()== elem){
+                 nivel = 1 + nivelAux(nodo.getDer(),elem);
+                 nivel = 1 + nivelAux(nodo.),elem)
+            }else{
+                 nivel = nivelAux(nodo.getIzq(),elem);
+                
+                
+            }
+            
+        }
+        return nivel;
     }
 
     public ListaInt listarPreorden() {
@@ -323,5 +344,26 @@ public class ArbolBinInt {
             clon = clonarInvertidoAux(this.raiz);
         }
         return clon;
+    }
+   public ArbolBinInt clon() {
+        ArbolBinInt clon = new ArbolBinInt ();
+        NodoArbol  aux = new NodoArbol(raiz.getElem());
+        clon.raiz= aux;
+        auxClon(this.raiz,clon.raiz);
+        return clon;
+    }
+
+    private void auxClon(NodoArbol nodo, NodoArbol clon) {
+        NodoArbol nuevo;
+        if (nodo.getIzq() != null) {
+            nuevo = new NodoArbol(nodo.getIzq().getElem());
+            clon.setIzq(nuevo);
+            auxClon(nodo.getIzq(), nuevo);
+        }
+        if (nodo.getDer() != null) {
+            nuevo = new NodoArbol(nodo.getDer().getElem());
+            clon.setDer(nuevo);
+            auxClon(nodo.getDer(), nuevo);
+        }
     }
 }
