@@ -24,7 +24,7 @@ public class ArbolGenString {
             s += n.getElem() + "->";
             NodoGen hijo = n.getEIzq();
             while(hijo != null){
-                s+= hijo.getElem() + " ";
+                s+= hijo.getElem() + ",";
                 hijo = hijo.getHermanoDer();
             }
             hijo = n.getEIzq();
@@ -35,11 +35,11 @@ public class ArbolGenString {
         }
         return s;
     }
-    private NodoGen obtenerNodo(NodoGen n ,String buscado){
+    private NodoGen obtenerNodo(NodoGen n ,int  buscado){
         NodoGen  res = null;
         if( n != null){
            
-            if(n.getElem().equalsIgnoreCase(buscado)){
+            if(n.getElem() == buscado){
                 res = n;
             }else{
                 res = obtenerNodo(n.getEIzq(),buscado);
@@ -53,11 +53,12 @@ public class ArbolGenString {
     public boolean insertar(String elem, String elemPadre){
         boolean exito =true;
         if(this.raiz == null){
-            this.raiz = new NodoGen (elem);
+            this.raiz = new NodoGen (elem,null,null);
         }else{
             NodoGen nodoPadre = obtenerNodo(this.raiz,elemPadre);
-            NodoGen nuevo = new NodoGen(elem);
+          
             if(nodoPadre!= null){
+                NodoGen nuevo = new NodoGen(elem,null,null);
                 if(nodoPadre.getEIzq() == null){
                     nodoPadre.setEIzq(nuevo);
                     exito = true;
@@ -75,23 +76,7 @@ public class ArbolGenString {
     public boolean pertenece(String elem){
         return perteneceAux(this.raiz,elem);
     }
-    private boolean perteneceAux(NodoGen n , String elem){
-        boolean res = false;
-        NodoGen hijo;
-        if(n != null){
-            if(n.getElem().equalsIgnoreCase(elem)){
-                res = true;
-            }
-            hijo = n.getEIzq();
-            while(hijo != null && !res ){
-                if(hijo.getElem().equalsIgnoreCase(elem)){
-                    res = true;
-                }
-                hijo = hijo.getHermanoDer();
-            }
-        }
-        return res;
-    }
+    
  
     
 }

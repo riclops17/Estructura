@@ -10,22 +10,21 @@ package jerarquicas;
  * @author ricardo
  */
 public class NodoGen {
-    private String elem;
+    private int elem;
     private NodoGen eIzq;
     private NodoGen hermanoDer;
     
-    public NodoGen(String elem1){
-       this.elem = elem1;
-        this.eIzq = null;
-        this.hermanoDer= null;
+    public NodoGen(int elem1,NodoGen hijoIzq,NodoGen hijoDer){
+        this.elem = elem1;
+        this.eIzq = hijoIzq;
+        this.hermanoDer= hijoDer;
     }
     public NodoGen(){
-        
         this.eIzq = null;
         this.hermanoDer= null;
     }
     
-    public String getElem(){
+    public int getElem(){
         return this.elem;
     }
     public NodoGen getEIzq(){
@@ -34,15 +33,15 @@ public class NodoGen {
     public NodoGen getHermanoDer(){
         return this.hermanoDer;
     }
-    public void setElem(String elem1){
-        elem1 = this.elem;
+    public void setElem(int elem1){
+        this.elem = elem1;
     }
     public void setEIzq(NodoGen eIzq1){
-        eIzq1 = this.eIzq;
+        this.eIzq = eIzq1;
         
     }
     public void setHermanoDer(NodoGen hermanoDer1){
-        hermanoDer1 = this.hermanoDer;
+      this.hermanoDer = hermanoDer1;
         
     }
 }
