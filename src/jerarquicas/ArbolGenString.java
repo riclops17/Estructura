@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package jerarquicas;
-
+import lineales.dinamicas.ListaInt;
 /**
  *
  * @author ricardo
@@ -50,7 +50,7 @@ public class ArbolGenString {
         }
         return res;
     }
-    public boolean insertar(String elem, String elemPadre){
+    public boolean insertar(int  elem, int elemPadre){
         boolean exito =true;
         if(this.raiz == null){
             this.raiz = new NodoGen (elem,null,null);
@@ -76,7 +76,41 @@ public class ArbolGenString {
     public boolean pertenece(String elem){
         return perteneceAux(this.raiz,elem);
     }
-    
+    private ListaInt listarAncestrosAux(NodoGen n, int elem ,ListaInt list){
+        ListaInt l1 = new ListaInt();
+        boolean res = false;
+        NodoGen hijo;
+        if ( n != null){
+            if(n.getElem() == elem){
+                l1.insertar(n.getElem(), l1.longitud() +1);
+            }else{
+                hijo = n.getEIzq();
+                while(hijo != null){
+                    if(hijo.getElem() == elem && res != true){
+                        l1.insertar(hijo.getElem(), l1.longitud() +1);
+                        res = true;
+                    }
+                    hijo = hijo.getHermanoDer();
+                }
+                hijo = n.getEIzq();
+                while (l1.esVacia() && hijo != null && res != true){
+                    l1 = listarAncestrosAux(hijo,elem , list);
+                    hijo = hijo.getHermanoDer();
+                }
+                if(!l1.esVacia()){
+                    l1.insertar(n.getElem(), l1.longitud() +1);
+                }
+            }
+        }
+        return l1;
+    }
+            
+            
+            
+            
+            
+            
+            
  
     
 }
