@@ -70,7 +70,7 @@ public class ArbolHeap {
         if (this.ultimo == 0){
             this.tabla[1] = elem;   
         }else{
-            if (this.tabla[ultimo]< tam){
+            if (this.tabla[ultimo +1 ]< tam){
                 this.tabla[ultimo] = elem;
             }
         }

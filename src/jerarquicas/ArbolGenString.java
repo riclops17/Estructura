@@ -73,11 +73,11 @@ public class ArbolGenString {
         }
         return exito;
     }
-    public boolean pertenece(String elem){
-        return perteneceAux(this.raiz,elem);
-    }
-    private ListaInt listarAncestrosAux(NodoGen n, int elem ,ListaInt list){
+    public ListaInt listarAncestrosAux(int elem){
         ListaInt l1 = new ListaInt();
+        return listarAncestrosAux(this.raiz,elem,l1);
+    }
+    private ListaInt listarAncestrosAux(NodoGen n, int elem ,ListaInt l1){
         boolean res = false;
         NodoGen hijo;
         if ( n != null){
@@ -94,7 +94,7 @@ public class ArbolGenString {
                 }
                 hijo = n.getEIzq();
                 while (l1.esVacia() && hijo != null && res != true){
-                    l1 = listarAncestrosAux(hijo,elem , list);
+                    l1 = listarAncestrosAux(hijo,elem , l1);
                     hijo = hijo.getHermanoDer();
                 }
                 if(!l1.esVacia()){

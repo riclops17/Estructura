@@ -97,4 +97,50 @@ public class ArbolBB {
             preordenAux(nodo.getDer(), l1);
         }
     }
+   public int minimoElem(){
+       int minimo ;
+       if (this.raiz == null){
+           minimo = Integer.MAX_VALUE;
+       }else{
+           minimo = minimoElemAux(this.raiz);
+       }
+       return minimo;
+   }
+   
+   private int minimoElemAux(NodoArbol n){
+       int minimo = 0;
+       if(n != null){
+           
+           if(n.getIzq() == null){
+               minimo = n.getElem();
+           }else{
+               minimo = minimoElemAux(n.getIzq());
+                   
+               }
+           
+       }
+       return minimo;
+   }
+   public int maximoElem(){
+       int maximo;
+       if(this.raiz == null){
+           maximo = Integer.MAX_VALUE;
+       }else{
+           maximo = maximoElemAux(this.raiz);
+       }
+       return maximo;
+   }
+    private int maximoElemAux(NodoArbol n){
+       int maximo = 0;
+       if(n != null){
+           
+           if(n.getDer() == null){
+               maximo = n.getElem();
+           }else{
+               maximo = maximoElemAux(n.getDer());
+                   
+               } 
+       }
+       return maximo;
+   }
 }

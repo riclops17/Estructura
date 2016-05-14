@@ -12,21 +12,14 @@ import jerarquicas.ArbolGenString;
 public class TestArbolGen {
     public static void main(String[] args) {
         ArbolGenString arbol = new ArbolGenString();
-        arbol.insertar("a",null );
-        arbol.insertar("b", "a");
-        arbol.insertar("f", "a");
-        arbol.insertar("g", "a");
-        arbol.insertar("c", "b");
-        arbol.insertar("d", "c");
-       arbol.insertar("h", "c");
-        System.out.println(arbol.toString());
-        System.out.println(arbol.pertenece("a"));
-         System.out.println(arbol.pertenece("b")); 
-          System.out.println(arbol.pertenece("f")); 
-           System.out.println(arbol.pertenece("g"));
-            System.out.println(arbol.pertenece("c"));
-             System.out.println(arbol.pertenece("d")); 
-             System.out.println(arbol.pertenece("z")); 
-              System.out.println(arbol.pertenece("h")); 
+        arbol.insertar(1,1 );
+        arbol.insertar(2, 1);
+        arbol.insertar(4, 1);
+        arbol.insertar(5, 1);
+        arbol.insertar(3, 2);
+        arbol.insertar(6, 3);
+        arbol.insertar(7, 3);
+        System.out.println(arbol.listarAncestrosAux(6).toString());
+        
     }
 }
