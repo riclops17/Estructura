@@ -19,7 +19,7 @@ public class TestArbolGen {
         arbol.insertar(3, 2);
         arbol.insertar(6, 3);
         arbol.insertar(7, 3);
-        System.out.println(arbol.listarAncestrosAux(6).toString());
+        System.out.println(arbol.listarAncestros(7).toString());
         
     }
 }

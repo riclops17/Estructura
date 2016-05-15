@@ -143,4 +143,25 @@ public class ArbolBB {
        }
        return maximo;
    }
+    public ArbolBB clonar(){
+        ArbolBB clon = new ArbolBB();
+        NodoArbol aux = new NodoArbol(this.raiz.getElem());
+        clon.raiz = aux;
+        clonarAux(this.raiz,clon.raiz);
+        return clon;
+    }
+    private void clonarAux(NodoArbol n, NodoArbol clon){
+        NodoArbol nuevo ;
+        if(n.getIzq() != null){
+            nuevo = new NodoArbol(n.getIzq().getElem());
+            clon.setIzq(nuevo);
+            clonarAux(n.getIzq(),nuevo);
+        }
+        if(n.getDer() != null){
+            nuevo = new NodoArbol(n.getDer().getElem());
+            clon.setDer(nuevo);
+            clonarAux(n.getDer(),nuevo);
+        }
+        
+    }
 }

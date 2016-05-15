@@ -73,7 +73,7 @@ public class ArbolGenString {
         }
         return exito;
     }
-    public ListaInt listarAncestrosAux(int elem){
+    public ListaInt listarAncestros(int elem){
         ListaInt l1 = new ListaInt();
         return listarAncestrosAux(this.raiz,elem,l1);
     }
