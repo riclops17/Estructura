@@ -83,18 +83,16 @@ public class ArbolBB {
         }
         return s;
     }
-   public ListaInt listarPreorden() {
+   public ListaInt listarInorden() {
         ListaInt lis = new ListaInt();
-        preordenAux(this.raiz, lis);
+        inordenAux(this.raiz, lis);
         return lis;
     }
-   private void preordenAux(NodoArbol nodo, ListaInt l1) {
+   private void inordenAux(NodoArbol nodo, ListaInt l1) {
         if (nodo != null) {
-            //visita el elemento en el nodo
+            inordenAux(nodo.getIzq(), l1);
             l1.insertar(nodo.getElem(), l1.longitud() + 1);
-            // recorre a sus hijos en preorden 
-            preordenAux(nodo.getIzq(), l1);
-            preordenAux(nodo.getDer(), l1);
+            inordenAux(nodo.getDer(), l1);
         }
     }
    public int minimoElem(){
@@ -121,6 +119,32 @@ public class ArbolBB {
        }
        return minimo;
    }
+   public boolean eliminarMinimo(){
+       boolean res ;
+       if(this.raiz == null){
+           res = false;
+       }else{
+           eliminarMinimoAux(this.raiz);
+           res = true;
+       }
+       return res;
+   }
+   public void eliminarMinimoAux(NodoArbol n){
+       if(n.getIzq() == null){
+         this.raiz = this.raiz.getDer();
+       }else{
+       while (n.getIzq().getIzq() != null){
+        n = n.getIzq() ;
+       }
+       if(n.getIzq().getDer() == null){
+           n.setIzq(null);   
+       }else{
+           n.setIzq(n.getIzq().getDer());
+       }
+     
+     }
+   }
+   
    public int maximoElem(){
        int maximo;
        if(this.raiz == null){
