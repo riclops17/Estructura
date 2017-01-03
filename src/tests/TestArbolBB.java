@@ -19,9 +19,10 @@ public class TestArbolBB {
         a.insertar(78);
         a.insertar(63);
         a.insertar(89);
+        a.insertar(80);
         a.insertar(71);
        
-        System.out.println(a.eliminarMinimo());
+        System.out.println(a.eliminarMaximo());
         System.out.println(a.toString());
         
        

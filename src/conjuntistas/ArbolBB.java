@@ -119,6 +119,31 @@ public class ArbolBB {
        }
        return minimo;
    }
+   public boolean eliminarMaximo(){
+       boolean res;
+       if(this.raiz == null){
+           res = false;
+           
+       }else{
+           eliminarMaximoAux(this.raiz);
+           res = true;
+       }
+       return res;
+   }
+   public void eliminarMaximoAux(NodoArbol n){
+       if(n.getDer() == null){
+           this.raiz = this.raiz.getIzq();
+       }else{
+           while(n.getDer().getDer()!= null){
+               n = n.getDer();
+           }
+           if(n.getDer().getIzq() == null){
+               n.setDer(null);
+           }else{
+               n.setDer(n.getDer().getIzq());
+           }
+       }
+   }
    public boolean eliminarMinimo(){
        boolean res ;
        if(this.raiz == null){
